@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button'
+import { Link, useHistory  } from 'react-router-dom'
 
 import './index.css';
 
@@ -15,27 +16,29 @@ export default function login() {
         </div>
         <div>
             <form>
-                <label className="email">
+                <div className="email">
                     <div className="enunciado">E-mail</div>
                     <input
                         className="placeHolder"
                         placeholder="E-mail"
                         type="email"
                     />
-                </label>
-                <label className="senha">
+                </div>
+                <div className="senha">
                     <div className="enunciado"> Senha</div>
                     <input 
                         className="placeHolder"
                         placeholder="Senha"
                         type="password"
                     />
-                </label>
-                <label>
-                    <button className="button">
-                        Entrar
-                    </button>
-                </label>
+                </div>
+                <div>
+                    <Link to="/home">
+                        <button className="button">
+                            Entrar
+                        </button>
+                    </Link>
+                </div>
             </form>
         </div>
     </div>
