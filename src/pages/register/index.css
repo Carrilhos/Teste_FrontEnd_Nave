@@ -2,6 +2,7 @@
 
 *{
     font-family: Montserrat;
+    outline: 0
 }
 
 a{
@@ -76,6 +77,20 @@ a{
 .buttonPosition{
     display: flex;
     justify-content: flex-end;
+}
+
+.modal{
+    width: 592px;
+    height: 160px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    
+}
+
+.borda{
+    border: 1px solid red;
 }
 
 
