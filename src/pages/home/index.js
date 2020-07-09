@@ -18,17 +18,17 @@ import NavBar from '../../componets/navBar'
 export default function home(){
     return(
        <div className="containerHome"> 
-            <div>
-                <NavBar/>
-            </div>
+            <NavBar/>
             <div className="bar">
                 <div className="navers">
                     Navers
                 </div>
                 <div>
-                    <button className="buttonAdiconarNaver">
-                        Adiconar Naver
-                    </button>
+                    <Link to="/register">
+                        <button className="buttonAdiconarNaver">
+                            Adicionar Naver
+                        </button>
+                    </Link>
                 </div>
             </div>
             <div className="devContainer">
