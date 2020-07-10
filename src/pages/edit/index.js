@@ -7,7 +7,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import './index.css'
 import NavBar from '../../componets/navBar'
 
-
 function getModalStyle() {
     const top = 50 
     const left = 50
@@ -19,7 +18,7 @@ function getModalStyle() {
       };
     }
 
-export default function Register(){
+export default function Edit(){
     const useStyles = makeStyles((theme) => ({
         paper: {
             position: 'absolute',
@@ -55,7 +54,7 @@ export default function Register(){
                         <IoIosArrowBack size={35} className="icon"/>
                     </Link>
                     <div>
-                        Adicionar Naver
+                        Editar Naver
                     </div>
                 </div>
                 <form className="form">
@@ -113,9 +112,9 @@ export default function Register(){
                             >
                                 {
                                     <div style={modalStyle} className={classes.paper}>
-                                    <h2 id="simple-modal-title">Naver criado</h2>
+                                    <h2 id="simple-modal-title">Naver atualizado</h2>
                                     <p id="simple-modal-description">
-                                        Naver criado com sucesso!
+                                        Naver atualizado com sucesso!
                                     </p>
                                     
                                   </div>

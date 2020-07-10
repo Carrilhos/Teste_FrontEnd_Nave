@@ -71,3 +71,46 @@
     line-height: 24px;
 }
 
+.buttonImg{
+    border: none
+}
+
+.devImg{
+    width: 503px;
+    height: 503px;
+   
+}
+
+.details{
+    margin: 30px
+}
+
+.nameDevDetails{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 20px
+}
+
+.patternDevDetails{
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 20px
+}
+
+.spotlightDevDetails{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 10px
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+}
+
+.buttonDevDetails{
+    padding: 5px
+}
