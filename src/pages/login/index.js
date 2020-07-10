@@ -1,6 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
-import * as Yup from 'yup'
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom'
+import * as yup from 'yup';
+import { Form, Field } from 'formik'
 
 import './index.css';
 import api from '../../services/api'
@@ -8,16 +9,28 @@ import api from '../../services/api'
 import logo from '../../assets/logo.png'
 
 
-export default function login() {
-   
-    const schema = Yup.object().shape({
-        email: Yup.string()
-          .email('Insira um e-mail válido')
-          .required('O e-mail é obrigatório'),
-        password: Yup.string()
-          .min(6, 'A senha deve ter no mínimo 6 caracteres')
-          .required('A senha é obrigatória'),
-      });
+export default function Login() {
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const history = useHistory()
+
+
+
+    async function handleLogin(e) {
+        e.preventDefault()
+        try {
+        const response = await api.post('users/login', { email, password })
+
+
+        history.push('/home')
+        
+    } catch (err) {
+      alert('Falha no login, tente novamente.')
+      
+    }
+  }
 
     return (
 
@@ -27,29 +40,37 @@ export default function login() {
             <img src={logo} />
         </div>
         <div>
-            <form>
+            <form onSubmit={handleLogin}>
                 <div className="email">
                     <div> E-mail</div>
                     <input
+                        onChange={e => setEmail(e.target.value)}
                         className="placeHolder"
                         placeholder="E-mail"
                         type="email"
+                        value={email}
+                        
                     />
                 </div>
                 <div className="senha">
                     <div> Senha</div>
                     <input 
+                        onChange={e => setPassword(e.target.value)}
                         className="placeHolder"
                         placeholder="Senha"
                         type="password"
+                        value={password}
                     />
                 </div>
                 <div>
-                    <Link to="/home">
-                        <button className="button">
+                    <button 
+                    className="button"
+                    type="submit"
+                    
+                    >
+
                             Entrar
-                        </button>
-                    </Link>
+                    </button>
                 </div>
             </form>
         </div>

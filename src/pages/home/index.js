@@ -30,6 +30,8 @@ function getModalStyle() {
     }
 
 export default function Home(){
+
+    //Estilo modal
     const useStyles = makeStyles((theme) => ({
         paper: {
             position: 'absolute',
@@ -54,7 +56,9 @@ export default function Home(){
       const handleClose = () => {
         setOpen(false);
       };
-
+    
+    //
+    
     return(
        <div className="containerHome"> 
             <NavBar/>
