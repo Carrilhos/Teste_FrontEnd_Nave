@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom'
-import * as yup from 'yup';
-import { Form, Field } from 'formik'
+import { login } from '../../services/auth'
 
 import './index.css';
 import api from '../../services/api'
@@ -16,13 +15,11 @@ export default function Login() {
 
     const history = useHistory()
 
-
-
     async function handleLogin(e) {
         e.preventDefault()
         try {
         const response = await api.post('users/login', { email, password })
-
+        login(response.data.token);
 
         history.push('/home')
         

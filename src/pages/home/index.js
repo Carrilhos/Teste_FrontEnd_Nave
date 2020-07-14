@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom'
 import { Modal } from '@material-ui/core/'
 import { makeStyles } from '@material-ui/core/styles'
@@ -8,15 +8,16 @@ import { IoMdTrash } from "react-icons/io";
 
 import { FaPen } from "react-icons/fa";
 
-import './index.css';
+import api from '../../services/api'
+
+import './index.css'
 import dev1 from '../../assets/naver1.png'
 import dev2 from '../../assets/naver2.png'
 import dev3 from '../../assets/naver3.png'
 import dev4 from '../../assets/naver4.png'
 
 import NavBar from '../../componets/navBar'
-import { flexbox } from '@material-ui/system';
-import { rosybrown } from 'color-name';
+
 
 function getModalStyle() {
     const top = 50 
@@ -27,9 +28,12 @@ function getModalStyle() {
         left: `${left}%`,
         transform: `translate(-${top}%, -${left}%)`,
       };
-    }
+    };
+
+
 
 export default function Home(){
+
 
     //Estilo modal
     const useStyles = makeStyles((theme) => ({
@@ -46,8 +50,9 @@ export default function Home(){
       }));
 
     const classes = useStyles();
-    const [modalStyle] = React.useState(getModalStyle);
-    const [open, setOpen] = React.useState(false);
+    const [modalStyle] = useState(getModalStyle);
+    const [open, setOpen] = useState(false);
+   
 
     const handleOpen = () => {
         setOpen(true);
@@ -58,10 +63,32 @@ export default function Home(){
       };
     
     //
+
+
+    // Listagem API
+    const [navers, setNavers] = useState([])
+    const [index, setIndex] = useState(1)
+
     
+
+    async function loadNavers(){
+        const response = await api.get('navers',{
+            params: { index }
+        })
+        setNavers(response.data)
+        console.log(navers)
+        setIndex(index+1)
+    }
+
+    useEffect(() => {
+        loadNavers()
+        console.log(navers)
+    })
+
     return(
        <div className="containerHome"> 
             <NavBar/>
+            
             <div className="bar">
                 <div className="navers">
                     Navers
@@ -82,7 +109,9 @@ export default function Home(){
                         </div>
                     </button>
                     <div className="nomeDev">
-                        Gabriel do Couto
+
+                       { navers.name}
+
                     </div>
                     <div className="funcaoDev">
                         Front-end Developer
@@ -105,7 +134,10 @@ export default function Home(){
                         </div>
                     </button>
                     <div className="nomeDev">
-                        Gabriel do Couto
+                        {navers.map((name) =>(
+                        `meu nome é ${navers.id}`
+                        ))}
+
                     </div>
                     <div className="funcaoDev">
                         Front-end Developer
