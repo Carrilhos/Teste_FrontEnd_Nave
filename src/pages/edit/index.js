@@ -1,11 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import { IoIosArrowBack } from "react-icons/io";
 import { Modal } from '@material-ui/core/'
 import { makeStyles } from '@material-ui/core/styles'
 
 import './index.css'
 import NavBar from '../../componets/navBar'
+
+import api from '../../services/api'
 
 function getModalStyle() {
     const top = 50 
@@ -18,7 +20,7 @@ function getModalStyle() {
       };
     }
 
-export default function Edit(){
+export default function Edit(id){
     const useStyles = makeStyles((theme) => ({
         paper: {
             position: 'absolute',
@@ -42,6 +44,48 @@ export default function Edit(){
         setOpen(false);
       };
 
+    /////
+
+    const [navers, setNavers] = useState([])
+    const [job_role, setJob_role] = useState('')
+    const [admission_date, setAdmission_date] = useState('')
+    const [birthdate, setBirthdate] = useState('')
+    const [project, setProject] = useState('')
+    const [name, setName] = useState('')
+    const [url, setURl] = useState('')
+    
+    const history = useHistory();
+
+    
+
+    async function handleEdit(){
+    
+        const id = localStorage.getItem('id')
+        
+        const data = {
+            job_role,
+            admission_date,
+            birthdate,
+            project,
+            name,
+            url
+
+        };
+
+        const frutas = "banana"
+
+        try{
+            await api.put(`navers/${id}`, data)
+            handleOpen()
+            setNavers(navers.filter(navers => navers.id !== id))
+            console.log(id)
+            console.log(frutas)
+        }catch (err) {
+            alert('Erro ao editar naver, tente novamente..')
+            }
+    }
+
+   
 
     return(
         
@@ -63,19 +107,24 @@ export default function Edit(){
                             <input
                                 className="boxinput"
                                 placeholder="Nome"
-                                type="email"
+                                value={name}
+                                onChange={e => setName(e.target.value)}
                             />
-                            <div className="enunciado">Idade</div>
+                            <div className="enunciado">Data de nascimento</div>
                             <input
                                 className="placeHolder"
-                                placeholder="Idade"
-                                type="email"
+                                placeholder="Data de nascimento"
+                                value={birthdate}
+                                onChange={e => setBirthdate(e.target.value)}
+                              
                             />
                             <div className="enunciado">Projetos que participou</div>
                             <input
                                 className="placeHolder"
                                 placeholder="Projetos que participou"
-                                type="email"
+                                value={project}
+                                onChange={e => setProject(e.target.value)}
+                                
                             />
                         </div>
                         <div>
@@ -83,23 +132,29 @@ export default function Edit(){
                             <input
                                 className="placeHolder"
                                 placeholder="Cargo"
-                                type="email"
+                                value={job_role}
+                                onChange={e => setJob_role(e.target.value)}
+                              
                             />
-                            <div className="enunciado">Tempo de empresa</div>
+                            <div className="enunciado">Data de admissão</div>
                             <input
                                 className="placeHolder"
-                                placeholder="Tempo de empresa"
-                                type="email"
+                                placeholder="Data de admissão"
+                                value={admission_date}
+                                onChange={e => setAdmission_date(e.target.value)}
+                               
                             />
                             <div className="enunciado">URL da foto do Naver</div>
                             <input
                                 className="placeHolder"
-                                placeholder="Projetos que participou"
-                                type="email"
+                                placeholder="URL da imagem"
+                                value={url}
+                                onChange={e => setURl(e.target.value)}
+                              
                             />
                             <div className="buttonPosition">
                                 <Link>
-                                    <button className="buttonStyle" onClick={handleOpen}>
+                                    <button className="buttonStyle" onClick={() => handleEdit(navers.id)}>
                                         Salvar
                                     </button>
                                 </Link>

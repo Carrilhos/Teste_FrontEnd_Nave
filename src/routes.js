@@ -2,7 +2,7 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Redirect
   } from "react-router-dom";
 
 import React from 'react'
@@ -12,14 +12,29 @@ import home from './pages/home'
 import register from './pages/register'
 import edit from './pages/edit'
 
+import { isAuthenticated } from "./services/auth"
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      isAuthenticated() ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+      )
+    }
+  />
+)
+
 export default function Routes (){
     return(
       <Router>
           <Switch>
               <Route exact path='/' component={login}/>
-              <Route path="/home" component={home}/>
-              <Route path="/register" component={register}/>
-              <Route path="/edit" component={edit}/>
+              <PrivateRoute path="/home" component={home}/>
+              <PrivateRoute path="/register" component={register}/>
+              <PrivateRoute path="/edit" component={edit}/>
           </Switch>
       </Router>
     )

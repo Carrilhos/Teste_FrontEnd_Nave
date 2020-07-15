@@ -5,6 +5,8 @@ import { Link, useHistory  } from 'react-router-dom'
 import './index.css';
 import logo from '../../assets/logo.png'
 
+import {logout} from '../../services/auth'
+
 export default function navBar(){
     return(
         <nav className='navBar'>
@@ -12,7 +14,7 @@ export default function navBar(){
                 <img src={logo} className="logo"/>
             </div>
             <div>
-                <Link to='/'>
+                <Link to='/' onClick={logout}>
                      Sair
                 </Link>
             </div>

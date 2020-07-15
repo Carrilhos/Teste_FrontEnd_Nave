@@ -1,11 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState} from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import { IoIosArrowBack } from "react-icons/io";
 import { Modal } from '@material-ui/core/'
 import { makeStyles } from '@material-ui/core/styles'
 
+import api from '../../services/api'
+
 import './index.css'
 import NavBar from '../../componets/navBar'
+
 
 
 function getModalStyle() {
@@ -43,6 +46,43 @@ export default function Register(){
         setOpen(false);
       };
 
+    //
+
+
+    const [job_role, setJob_role] = useState('')
+    const [admission_date, setAdmission_date] = useState('')
+    const [birthdate, setBirthdate] = useState('')
+    const [project, setProject] = useState('')
+    const [name, setName] = useState('')
+    const [url, setURl] = useState('')
+    
+    const history = useHistory();
+
+    async function handleNewNaver(e){
+        e.preventDefault();
+
+        const data = {
+            job_role,
+            admission_date,
+            birthdate,
+            project,
+            name,
+            url
+
+        };
+
+        try {
+            await api.post('navers',data);
+            handleOpen() 
+
+        } catch (err) {
+            alert('Ocorreu um erro ao cadastrar o caso');
+        }
+    }
+
+    function goToHome(){
+        history.push('/home')
+    }
 
     return(
         
@@ -64,19 +104,23 @@ export default function Register(){
                             <input
                                 className="boxinput"
                                 placeholder="Nome"
-                                type="email"
+                               
+                                onChange={e => setName(e.target.value)}
+                                value={name}
                             />
-                            <div className="enunciado">Idade</div>
+                            <div className="enunciado">Aniversario</div>
                             <input
                                 className="placeHolder"
-                                placeholder="Idade"
-                                type="email"
+                                placeholder="Aniversario"     
+                                value={birthdate}   
+                                onChange={e => setBirthdate(e.target.value)}                   
                             />
                             <div className="enunciado">Projetos que participou</div>
                             <input
                                 className="placeHolder"
-                                placeholder="Projetos que participou"
-                                type="email"
+                                placeholder="Projetos que participou" 
+                                value={project}  
+                                onChange={e => setProject(e.target.value)}                          
                             />
                         </div>
                         <div>
@@ -84,30 +128,33 @@ export default function Register(){
                             <input
                                 className="placeHolder"
                                 placeholder="Cargo"
-                                type="email"
+                                value={job_role}
+                                onChange={e => setJob_role(e.target.value)}
                             />
-                            <div className="enunciado">Tempo de empresa</div>
+                            <div className="enunciado">Data de admissão</div>
                             <input
                                 className="placeHolder"
-                                placeholder="Tempo de empresa"
-                                type="email"
+                                placeholder="data de admissão"      
+                                value={admission_date}
+                                onChange={e => setAdmission_date(e.target.value)}                     
                             />
                             <div className="enunciado">URL da foto do Naver</div>
                             <input
                                 className="placeHolder"
-                                placeholder="Projetos que participou"
-                                type="email"
+                                placeholder="URL da foto"
+                                value={url}
+                                onChange={e => setURl(e.target.value)}
                             />
                             <div className="buttonPosition">
-                                <Link>
-                                    <button className="buttonStyle" onClick={handleOpen}>
+                               
+                                    <button className="buttonStyle" onClick={handleNewNaver}  type="submit">
                                         Salvar
                                     </button>
-                                </Link>
+                               
                     
                                 <Modal
                                 open={open}
-                                onClose={handleClose}
+                                onClose={goToHome}
                                 aria-labelledby="simple-modal-title"
                                 aria-describedby="simple-modal-description"
                             >
@@ -117,6 +164,7 @@ export default function Register(){
                                     <p id="simple-modal-description">
                                         Naver criado com sucesso!
                                     </p>
+
                                     
                                   </div>
                                 }
