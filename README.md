@@ -37,6 +37,6 @@ Minha principal dificuldade, e o que me empediu de entregar o projeto completo, 
 
 <h2> Agradecimentos </h2>
 
-Gostaria de agradecer a empresa <i>Nave</> pela oportunidade de fazer o teste. Ele me agregou muito conhecimento com algumas biblitecas que não havia tido contato. Agradeço também ao <i>Felipe Adamoli</i> e ao <i>João Pedro Bretanha</i> por terem tirado todas minhas duvidas por email.
+Gostaria de agradecer a empresa <i>Nave</i> pela oportunidade de fazer o teste. Ele me agregou muito conhecimento com algumas biblitecas que não havia tido contato. Agradeço também ao <i>Felipe Adamoli</i> e ao <i>João Pedro Bretanha</i> por terem tirado todas minhas duvidas por email.
 
   
