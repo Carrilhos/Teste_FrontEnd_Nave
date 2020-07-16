@@ -23,7 +23,7 @@ yarn start
 - [x] Listagem
 - [x] Visualização
 - [x] Criação
-- [] Edição
+- [ ] Edição
 - [x] Formatação de textos
 - [x] Necessidade de autenticação
 
