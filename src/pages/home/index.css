@@ -1,162 +1,156 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 
-*{
-    font-family: Montserrat;
+* {
+  font-family: Montserrat;
 }
 
-.bar{
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   margin-left: 40px;
-   margin-right: 40px;
-   margin-top: 40px
-   
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 40px;
 }
 
-.navers{
- 
-    font-style: normal;
-    font-weight: 600;
-    font-size: 40px;
-    line-height: 48px;
+.navers {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
 }
 
-.buttonAdiconarNaver{
-  
-    width: 176px;
-    height: 40;
-    color: #fff;
-    background-color: #212121;;
-    border: none;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
-    padding: 10px
+.buttonAdiconarNaver {
+  width: 176px;
+  height: 40;
+  color: #fff;
+  background-color: #212121;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  padding: 10px;
 }
 
-.devContainer{
-    width: 100vw;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin-top: 80px;
-    flex-wrap: wrap
+.devContainer {
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 80px;
+  flex-wrap: wrap;
 }
 
-
-.buttonDev a{
-    text-decoration: none;
-    color: #000;
-    margin-right: 10px
-
+.buttonDev a {
+  text-decoration: none;
+  color: #000;
+  margin-right: 10px;
 }
 
-.nomeDev, .funcaoDev, .buttonDev{
-    margin-top: 5px
-
+.nomeDev,
+.funcaoDev,
+.buttonDev {
+  margin-top: 5px;
 }
 
-.nomeDev{
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 18px;
+.nomeDev {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
 }
 
-.funcaoDev{
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 24px;
+.funcaoDev {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
 }
 
-.buttonImg{
-    border: none
+.buttonImg {
+  border: none;
 }
 
-.devImg{
-    width: 503px;
-    height: 503px;
-   
+.devImg {
+  width: 503px;
+  height: 503px;
 }
 
-.details{
-    margin: 30px
+.details {
+  margin: 30px;
 }
 
-.nameDevDetails{
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 36px;
-    margin-bottom: 20px
+.nameDevDetails {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 20px;
 }
 
-.patternDevDetails{
-    font-size: 16px;
-    line-height: 24px;
-    margin-bottom: 20px
+.patternDevDetails {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 20px;
 }
 
-.spotlightDevDetails{
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-    margin-bottom: 10px
+.spotlightDevDetails {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 10px;
 }
 
-.details{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.buttonDevDetails{
-    padding: 5px
+.buttonDevDetails {
+  padding: 5px;
 }
 
-.imagemDev{
-    width: 280px;
-    height: 2;
+.imagemDev {
+  width: 280px;
+  height: 2;
 }
 
-.buttondelete{
-    border: none;
-    background-color: #E5E5E5
+.buttondelete {
+  border: none;
+  background-color: #e5e5e5;
 }
 
-.buttondeletemodal{
-    border: none;
-    background-color: #fff
+.buttondeletemodal {
+  border: none;
+  background-color: #fff;
 }
 
-.textDelete{
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 36px;
-    color: #212121
+.textDelete {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 36px;
+  color: #212121;
 }
 
-.descriptionDelete{
-    font-size: 16px;
-    line-height: 36px;
-    color: #212121;
+.descriptionDelete {
+  font-size: 16px;
+  line-height: 36px;
+  color: #212121;
 }
 
-.buttonModalDelete{
-    width: 176px;
-    height: 40px;
-    border: 1px solid #212121;
-    background-color: #fff;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
-    color: #212121;
-
+.buttonModalDelete {
+  width: 176px;
+  height: 40px;
+  border: 1px solid #212121;
+  background-color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  color: #212121;
 }
 
-.buttonModalDelete:hover{
-    background-color: #212121;
-    color: #FFF
+.buttonModalDelete:hover {
+  background-color: #212121;
+  color: #fff;
 }

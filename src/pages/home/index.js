@@ -60,8 +60,7 @@ export default function Home(){
             justifyContent: "space-evenly",
             paddingLeft: "20px"
         
-                 
-            
+        
         },
       }));
 
@@ -109,6 +108,7 @@ export default function Home(){
     // Listagem API
     const [navers, setNavers] = useState([])
     const [index, setIndex] = useState(1)
+    const [id, setID] = useState("")
 
     
 
@@ -119,7 +119,9 @@ export default function Home(){
         setNavers(response.data)
        
         setIndex(index+1)
+        setID([... id, ...response.data])
 
+      
      
     }
 
@@ -144,15 +146,14 @@ export default function Home(){
         }
     }
 
-    function handleEdit(id){
-        setNavers(navers.filter(navers => navers.id !== id))
-        localStorage.setItem('id', navers.id)
+    function handleEdit(){
+     
+        
         history.push('/edit')
-
-    
+       
       }
     
-
+    
 
     return(
        <div className="containerHome"> 
@@ -177,7 +178,7 @@ export default function Home(){
             {navers.map(function(navers) {
     return (
         <div>
-                    <button class="buttonImg">
+                    <button className="buttonImg">
                         <div onClick={handleOpen}>
                             <img src={navers.url} className="imagemDev"/>
                         </div>
@@ -193,7 +194,7 @@ export default function Home(){
                         <button onClick={() => handleDeleteNaver(navers.id)} className="buttondelete">
                             <IoMdTrash size={19}/>
                        </button>
-                       <button onClick={handleEdit} className="buttondelete">
+                       <button onClick={() => handleEdit(id)} className="buttondelete">
                             <FaPen  size={15}/>
                        </button>
                     
@@ -260,7 +261,7 @@ export default function Home(){
                             <div className="textDelete"> Excluir Naver</div>
                             <div className="descriptionDelete"> Tem certeza que deseja excluir esse Naver?</div>
                             <div>
-                                <button className="buttonModalDelete" onClick={handleCloseDelete}>  Cancelar </button>
+                               <button className="buttonModalDelete" onClick={handleCloseDelete}>  Cancelar </button>
                                 <button className="buttonModalDelete" onClick={() => handleDeleteNaver(navers.id)}> Excluir </button>
                             </div>
                             
@@ -285,7 +286,8 @@ export default function Home(){
 
     )
     })}
-                
+
+
     </div>
 
     </div>

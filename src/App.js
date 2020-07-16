@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import './App.css';
+import "./App.css";
 
-import Routes from './routes'
+import Routes from "./routes";
 
 function App() {
-  return (
-    <Routes/>
-  );
+  return <Routes />;
 }
 
 export default App;

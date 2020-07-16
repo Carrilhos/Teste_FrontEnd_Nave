@@ -1,23 +1,23 @@
-body{
-    background-color: #E5E5E5
+body {
+  background-color: #e5e5e5;
 }
 
-.navBar{
-    height: 85px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 30px 5px;
-    margin-right: 1%
+.navBar {
+  height: 85px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 30px 5px;
+  margin-right: 1%;
 }
 
-.logo{
-    height: 37px;
+.logo {
+  height: 37px;
 }
 
-.navBar a{
-    text-decoration: none;
-    color: #000;
-    font-size: 14px;
-    font-weight: 600
+.navBar a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: 600;
 }
