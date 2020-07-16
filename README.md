@@ -1,5 +1,8 @@
 <h1>  Front-end Challenge </h1>
 
+<img src="https://github.com/Carrilhos/Teste_FrontEnd_Nave/blob/master/imgGit/Nave1.png">
+<img src="https://github.com/Carrilhos/Teste_FrontEnd_Nave/blob/master/imgGit/Nave2.png">
+<img src="https://github.com/Carrilhos/Teste_FrontEnd_Nave/blob/master/imgGit/Nave3.png">
 <br>
 <br>
 
